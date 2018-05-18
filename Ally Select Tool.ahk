@@ -478,9 +478,7 @@ min() {
 }
 
 TEST:
-CurrentPositionX := min()
-MsgBox %CurrentPositionX%
-return
+msgbox DO NOTHING
 
 ;-------------------
 
@@ -506,6 +504,7 @@ GuiControl, Disable, Reset10
 
 GetCurrentPortrait:
 Record2()
+CurrentPositionX := min()
 return
 
 Ally1Hotkey:
