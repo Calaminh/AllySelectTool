@@ -65,6 +65,10 @@ IniRead, DP5Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable20
 Gui, FrontEnd:Add, Text, w200, Ally Selection Tool (by Calaminh and John)
 Gui, FrontEnd:Add, Text, w200, __________________________________
 Gui, FrontEnd:Add, Text, w200, Note: You will not always have the same team or portrait. Please update the information for every game.
+
+CurrentTeam := ""
+CurrentPortraitPosition := ""
+
 GUI, FrontEnd:Add, Text,  , Team: %CurrentTeam%
 GUI, FrontEnd:Add, Text,  , Portrait Position: %CurrentPortraitPosition%
 GUI, FrontEnd:Add, Text,  , Selection Method:
@@ -474,10 +478,11 @@ min() {
 }
 
 TEST:
-dank := min()
-MsgBox %dank%
+CurrentPositionX := min()
+MsgBox %CurrentPositionX%
 return
-;----
+
+;-------------------
 
 GuiControl, Disable, Record3
 GuiControl, Disable, Reset3
@@ -521,3 +526,11 @@ msgbox TADA
 ;----
 Button1:
 msgbox % Ally1Hotkey
+
+;---
+
+if(CurrentPositionX=RP1X)
+{
+CurrentTeam:=Radiant
+CurrentPortraitPosition:=1
+}
