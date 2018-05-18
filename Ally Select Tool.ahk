@@ -66,11 +66,8 @@ Gui, FrontEnd:Add, Text, w200, Ally Selection Tool (by Calaminh and John)
 Gui, FrontEnd:Add, Text, w200, __________________________________
 Gui, FrontEnd:Add, Text, w200, Note: You will not always have the same team or portrait. Please update the information for every game.
 
-CurrentTeam := ""
-CurrentPortraitPosition := ""
-
-GUI, FrontEnd:Add, Text,  , Team: %CurrentTeam%
-GUI, FrontEnd:Add, Text,  , Portrait Position: %CurrentPortraitPosition%
+GUI, FrontEnd:Add, Text, vTeam , Team:
+GUI, FrontEnd:Add, Text, vPortraitPosition , Portrait Position:
 GUI, FrontEnd:Add, Text,  , Selection Method:
 
 
@@ -505,33 +502,11 @@ GuiControl, Disable, Reset10
 GetCurrentPortrait:
 Record2()
 CurrentPositionX := min()
-return
-
-Ally1Hotkey:
-msgbox TADA
-
-Ally2Hotkey:
-msgbox TADA
-
-Ally3Hotkey:
-msgbox TADA
-
-Ally4Hotkey:
-msgbox TADA
-
-IngameSelectHero:
-msgbox TADA
-
-;----
-Button1:
-msgbox % Ally1Hotkey
-
-;---
 
 if(CurrentPositionX=RP1X)
 {
-CurrentTeam:=Radiant
-CurrentPortraitPosition:=1
+GuiControl, Team, Team: Radiant
+GuiControl, PortraitPosition, Portrait Position: 1
 }
 
 if(CurrentPositionX=RP2X)
@@ -593,3 +568,27 @@ if(CurrentPositionX=DP1X)
 CurrentTeam:=Dire
 CurrentPortraitPosition:=5
 }
+
+return
+
+Ally1Hotkey:
+msgbox TADA
+
+Ally2Hotkey:
+msgbox TADA
+
+Ally3Hotkey:
+msgbox TADA
+
+Ally4Hotkey:
+msgbox TADA
+
+IngameSelectHero:
+msgbox TADA
+
+;----
+Button1:
+msgbox % Ally1Hotkey
+
+;---
+
