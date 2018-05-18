@@ -10,8 +10,6 @@ CurrentPositionX := ""
 
 ExtrapolateDifference := ""
 
-
-
 RP1X:=PositionArrayX[1]
 RP1Y:=PositionArrayY[1]
 RP2X:=PositionArrayX[2]
@@ -94,9 +92,6 @@ Submit_All:
 ;----------------------------------------------------------------------------------------------	
 	
 Setting:
-
-
-
 Gui, BackEnd:Add, Text, w205, Hotkey (Note: Choose your desired hotkeys. Do not overlap with in-game hotkeys!)
 
 Gui, BackEnd:Add, Text, w205, Select Your Portrait Hotkey
@@ -451,11 +446,7 @@ GuiControl, Disable, Ally4HotkeyPart1
 GuiControl, Disable, IngameSelectHeroPart1
 return
 
-
-
-
 return
-
 
 ;NOTE TO SELF
 ;GuiControlGet, UpdateHotkey
@@ -530,6 +521,3 @@ msgbox TADA
 ;----
 Button1:
 msgbox % Ally1Hotkey
-
-
-
