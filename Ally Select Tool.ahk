@@ -583,91 +583,190 @@ GetCurrentPortrait:
 ListenHotkey()
 CurrentPositionX := min()
 
-str1 = Team: Horde
-str2 = Portrait Position: -1
+Radiant = Team: Radiant
+Dire = Team: Dire
+PP1 = Portrait Position: 1
+PP2 = Portrait Position: 2
+PP3 = Portrait Position: 3
+PP4 = Portrait Position: 4
+PP5 = Portrait Position: 5
 
 if(CurrentPositionX=RP1X)
 {
-    GuiControl, FrontEnd:,Team, %str1%
-    GuiControl, FrontEnd:,PortraitPosition, %str2%
+    GuiControl, FrontEnd:,Team, %Radiant%
+    GuiControl, FrontEnd:,PortraitPosition, %PP1%
 }
 
 if(CurrentPositionX=RP2X)
 {
-CurrentTeam:=Radiant
-CurrentPortraitPosition:=1
+    GuiControl, FrontEnd:,Team, %Radiant%
+    GuiControl, FrontEnd:,PortraitPosition, %PP2%
 }
 
 if(CurrentPositionX=RP3X)
 {
-CurrentTeam:=Radiant
-CurrentPortraitPosition:=3
+    GuiControl, FrontEnd:,Team, %Radiant%
+    GuiControl, FrontEnd:,PortraitPosition, %PP3%
 }
 
 if(CurrentPositionX=RP4X)
 {
-CurrentTeam:=Radiant
-CurrentPortraitPosition:=4
+    GuiControl, FrontEnd:,Team, %Radiant%
+    GuiControl, FrontEnd:,PortraitPosition, %PP4%
 }
 
 if(CurrentPositionX=RP5X)
 {
-CurrentTeam:=Radiant
-CurrentPortraitPosition:=5
-}
-
-if(CurrentPositionX=RP2X)
-{
-CurrentTeam:=Radiant
-CurrentPortraitPosition:=1
+    GuiControl, FrontEnd:,Team, %Radiant%
+    GuiControl, FrontEnd:,PortraitPosition, %PP5%
 }
 
 if(CurrentPositionX=DP1X)
 {
-CurrentTeam:=Dire
-CurrentPortraitPosition:=1
+    GuiControl, FrontEnd:,Team, %Dire%
+    GuiControl, FrontEnd:,PortraitPosition, %PP1%
 }
 
 if(CurrentPositionX=DP2X)
 {
-CurrentTeam:=Dire
-CurrentPortraitPosition:=2
+    GuiControl, FrontEnd:,Team, %Dire%
+    GuiControl, FrontEnd:,PortraitPosition, %PP2%
 }
 
 if(CurrentPositionX=DP3X)
 {
-CurrentTeam:=Dire
-CurrentPortraitPosition:=3
+    GuiControl, FrontEnd:,Team, %Dire%
+    GuiControl, FrontEnd:,PortraitPosition, %PP3%
 }
 
 if(CurrentPositionX=DP4X)
 {
-CurrentTeam:=Dire
-CurrentPortraitPosition:=4
+    GuiControl, FrontEnd:,Team, %Dire%
+    GuiControl, FrontEnd:,PortraitPosition, %PP4%
 }
 
-if(CurrentPositionX=DP1X)
+if(CurrentPositionX=DP5X)
 {
-CurrentTeam:=Dire
-CurrentPortraitPosition:=5
+    GuiControl, FrontEnd:,Team, %Dire%
+    GuiControl, FrontEnd:,PortraitPosition, %PP5%
 }
 
 return
 
 Ally1Hotkey:
-msgbox TADA
+	if(CurrentPositionX=RP1X)
+	{
+		Ally1Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP2X, RP2Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally1Hotkey, P
+			if state = U
+				break
+		}
+	}
+	else
+	{
+		Ally1Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP1X, RP1Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally1Hotkey, P
+			if state = U
+				break
+		}
+	}
 return
 
 Ally2Hotkey:
-msgbox TADA
+	if(CurrentPositionX=RP2X)
+	{
+		Ally2Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP3X, RP3Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally1Hotkey, P
+			if state = U
+				break
+		}
+	}
+	else
+	{
+		Ally2Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP2X, RP2Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally2Hotkey, P
+			if state = U
+				break
+		}
+	}
 return
 
 Ally3Hotkey:
-msgbox TADA
+	if(CurrentPositionX=RP3X)
+	{
+		Ally3Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP4X, RP4Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally3Hotkey, P
+			if state = U
+				break
+		}
+	}
+	else
+	{
+		Ally3Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP3X, RP3Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally3Hotkey, P
+			if state = U
+				break
+		}
+	}
 return
 
 Ally4Hotkey:
-msgbox TADA
+	if(CurrentPositionX=RP4X)
+	{
+		Ally4Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP5X, RP5Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally4Hotkey, P
+			if state = U
+				break
+		}
+	}
+	else
+	{
+		Ally4Hotkey::
+		MouseGetPos, xpos, ypos 
+		MouseClick, left, RP4X, RP4Y, 2, 0,,
+		Loop
+		{
+			Sleep 10
+			GetKeyState, state, Ally4Hotkey, P
+			if state = U
+				break
+		}
+	}
 return
 
 IngameSelectHero:
@@ -676,7 +775,7 @@ return
 
 ;----
 Button1:
-msgbox % Ally1Hotkey
+msgbox % CurrentPositionX
 return
 
 ;---
