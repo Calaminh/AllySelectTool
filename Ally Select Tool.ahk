@@ -2,13 +2,13 @@
 ;Made by Calaminh and BronzePickaxe 2018
 
 #SingleInstance, Force
-;global PositionArrayX := [143,334,14,31,39,77,88,66,123,765]
+global testarray := [143,334,14,31,39,77,88,66,123,765]
 ;global CurrentPositionX := 50
 global PositionArrayX := Object() 
 global PositionArrayY := Object()
-CurrentPositionX := ""
+global CurrentPositionX := 0
 
-ExtrapolateDifference := ""
+ExtrapolateDifference := 0
 
 RP1X:=PositionArrayX[1]
 RP1Y:=PositionArrayY[1]
@@ -84,6 +84,9 @@ return
 
 GUIClose:
 	ExitApp
+    
+2GuiClose:
+ExitApp 
 
 Submit_All:
 	GUI, Submit, NoHide
@@ -114,22 +117,22 @@ Gui, BackEnd:Add, Edit, w205 vIngameSelectHeroPart1,
 Gui, BackEnd:Add, Checkbox, vExtrapolate Checked, Extrapolate
 if(Extrapolate=1)
 {
-GuiControl, Disable, Record3
-GuiControl, Disable, Reset3
-GuiControl, Disable, Record4
-GuiControl, Disable, Reset4
-GuiControl, Disable, Record5
-GuiControl, Disable, Reset5
-GuiControl, Disable, Record6
-GuiControl, Disable, Reset6
-GuiControl, Disable, Record7
-GuiControl, Disable, Reset7
-GuiControl, Disable, Record8
-GuiControl, Disable, Reset8
-GuiControl, Disable, Record9
-GuiControl, Disable, Reset9
-GuiControl, Disable, Record10
-GuiControl, Disable, Reset10
+    GuiControl, Disable, Record3
+    GuiControl, Disable, Reset3
+    GuiControl, Disable, Record4
+    GuiControl, Disable, Reset4
+    GuiControl, Disable, Record5
+    GuiControl, Disable, Reset5
+    GuiControl, Disable, Record6
+    GuiControl, Disable, Reset6
+    GuiControl, Disable, Record7
+    GuiControl, Disable, Reset7
+    GuiControl, Disable, Record8
+    GuiControl, Disable, Reset8
+    GuiControl, Disable, Record9
+    GuiControl, Disable, Reset9
+    GuiControl, Disable, Record10
+    GuiControl, Disable, Reset10
 }
 
 Gui, BackEnd:Add, Text, w205, Get Radiant Portrait Position
@@ -211,6 +214,7 @@ Record2() {
         If (LButtonDown = 1)
         {
             CurrentPositionX := xpos
+            MsgBox "SAVED" %CurrentPositionX%
             ToolTip
             return
         }
@@ -241,12 +245,16 @@ IniWrite, %TempStorage2%, AllySelectToolSettings.ini, SavedPortraitPosition, Var
 IniRead, RP1X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable1
 IniRead, RP1Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable2
 GuiControl,,CoordinateText1, X=%RP1X% Y=%RP1Y%
+PositionArrayX[1] := RP1X
+PositionArrayY[1] := RP1Y
 return
 
 Reset1:
 RP1X = 0
 RP1Y = 0
 GuiControl,,CoordinateText1, X=%RP1X% Y=%RP1Y%
+PositionArrayX[1] := RP1X
+PositionArrayY[1] := RP1Y
 return
 
 Record2:
@@ -258,6 +266,8 @@ IniWrite, %TempStorage4%, AllySelectToolSettings.ini, SavedPortraitPosition, Var
 IniRead, RP2X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable3
 IniRead, RP2Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable4
 GuiControl,,CoordinateText2, X=%RP2X% Y=%RP2Y%
+PositionArrayX[2] := RP2X
+PositionArrayY[2] := RP2Y
 return
 
 Reset2:
@@ -275,12 +285,16 @@ IniWrite, %TempStorage6%, AllySelectToolSettings.ini, SavedPortraitPosition, Var
 IniRead, RP3X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable5
 IniRead, RP3Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable6
 GuiControl,,CoordinateText3, X=%RP3X% Y=%RP3Y%
+PositionArrayX[3] := RP3X
+PositionArrayY[3] := RP3Y
 return
 
 Reset3:
 RP3X = 0
 RP3Y = 0
 GuiControl,,CoordinateText3, X=%RP3X% Y=%RP3Y%
+PositionArrayX[3] := RP3X
+PositionArrayY[3] := RP3Y
 return
 
 Record4:
@@ -292,12 +306,16 @@ IniWrite, %TempStorage8%, AllySelectToolSettings.ini, SavedPortraitPosition, Var
 IniRead, RP4X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable7
 IniRead, RP4Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable8
 GuiControl,,CoordinateText4, X=%RP4X% Y=%RP4Y%
+PositionArrayX[4] := RP4X
+PositionArrayY[4] := RP4Y
 return
 
 Reset4:
 RP4X = 0
 RP4Y = 0
 GuiControl,,CoordinateText4, X=%RP4X% Y=%RP4Y%
+PositionArrayX[4] := RP4X
+PositionArrayY[4] := RP4Y
 return
 
 Record5:
@@ -309,12 +327,16 @@ IniWrite, %TempStorage10%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP5X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable9
 IniRead, RP5Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable10
 GuiControl,,CoordinateText5, X=%RP5X% Y=%RP5Y%
+PositionArrayX[5] := RP5X
+PositionArrayY[5] := RP5Y
 return
 
 Reset5:
 RP5X = 0
 RP5Y = 0
 GuiControl,,CoordinateText5, X=%RP5X% Y=%RP5Y%
+PositionArrayX[5] := RP5X
+PositionArrayY[5] := RP5Y
 return
 
 Record6:
@@ -326,12 +348,16 @@ IniWrite, %TempStorage12%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP6X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable11
 IniRead, RP6Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable12
 GuiControl,,CoordinateText6, X=%RP6X% Y=%RP6Y%
+PositionArrayX[6] := RP6X
+PositionArrayY[6] := RP6Y
 return
 
 Reset6:
 RP6X = 0
 RP6Y = 0
 GuiControl,,CoordinateText6, X=%RP6X% Y=%RP6Y%
+PositionArrayX[6] := RP6X
+PositionArrayY[6] := RP6Y
 return
 
 Record7:
@@ -343,12 +369,16 @@ IniWrite, %TempStorage14%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP7X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable13
 IniRead, RP7Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable14
 GuiControl,,CoordinateText7, X=%RP7X% Y=%RP7Y%
+PositionArrayX[7] := RP7X
+PositionArrayY[7] := RP7Y
 return
 
 Reset7:
 RP7X = 0
 RP7Y = 0
 GuiControl,,CoordinateText7, X=%RP7X% Y=%RP7Y%
+PositionArrayX[7] := RP7X
+PositionArrayY[7] := RP7Y
 return
 
 Record8:
@@ -360,12 +390,16 @@ IniWrite, %TempStorage16%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP8X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable15
 IniRead, RP8Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable16
 GuiControl,,CoordinateText8, X=%RP8X% Y=%RP8Y%
+PositionArrayX[8] := RP8X
+PositionArrayY[8] := RP8Y
 return
 
 Reset8:
 RP8X = 0
 RP8Y = 0
 GuiControl,,CoordinateText8, X=%RP8X% Y=%RP8Y%
+PositionArrayX[8] := RP8X
+PositionArrayY[8] := RP8Y
 return
 
 Record9:
@@ -377,12 +411,16 @@ IniWrite, %TempStorage18%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP9X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable17
 IniRead, RP9Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable18
 GuiControl,,CoordinateText9, X=%RP9X% Y=%RP9Y%
+PositionArrayX[9] := RP9X
+PositionArrayY[9] := RP9Y
 return
 
 Reset9:
 RP9X = 0
 RP9Y = 0
 GuiControl,,CoordinateText9, X=%RP9X% Y=%RP9Y%
+PositionArrayX[9] := RP9X
+PositionArrayY[9] := RP9Y
 return
 
 Record10:
@@ -394,12 +432,16 @@ IniWrite, %TempStorage20%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP10X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable19
 IniRead, RP10Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable20
 GuiControl,,CoordinateText10, X=%RP10X% Y=%RP10Y%
+PositionArrayX[10] := RP10X
+PositionArrayY[10] := RP10Y
 return
 
 Reset10:
 RP10X = 0
 RP10Y = 0
 GuiControl,,CoordinateText10, X=%RP10X% Y=%RP10Y%
+PositionArrayX[10] := RP10X
+PositionArrayY[10] := RP10Y
 return
 ;----------------------------------------------------------------------------------------------
 return
@@ -457,21 +499,32 @@ return
 
 min() {
     DifferenceArray:=[]
-    Index := 0
-
-    Loop % PositionArrayX.Length()
-        DifferenceArray.push(Abs(CurrentPositionX-PositionArrayX[A_Index]))
+    Mindex := 1
+    temp = 0
+    
+    MsgBox "MIN CALLED"
+    
+    join(testarray)
+    
+    for currNdx, element in PositionArrayX
+    {
+        DifferenceArray[currNdx] = Abs(CurrentPositionX - element)
+        temp := DifferenceArray[currNdx]
+        MsgBox %currNdx% "POSITION " %element% "CP" %CurrentPositionX% "Difference" %temp%
+    }
 
     SmallestDifference := DifferenceArray[1]
-
-    Loop % DifferenceArray.Length()
-        if(SmallestDifference > DifferenceArray[A_Index])
-        {
-            SmallestDifference:=DifferenceArray[A_Index]
-            Index := A_Index
-        }
     
-    return PositionArrayX[Index]
+    for currNdx, element in DifferenceArray
+    {
+        if(SmallestDifference > element)
+        {
+            SmallestDifference = element
+            Mindex = currNdx
+        }
+    }
+    
+    return PositionArrayX[Mindex]
 }
 
 TEST:
@@ -502,11 +555,11 @@ GuiControl, Disable, Reset10
 GetCurrentPortrait:
 Record2()
 CurrentPositionX := min()
-
+MsgBox "TEST" %CurrentPositionX%
 if(CurrentPositionX=RP1X)
 {
-GuiControl, Team, Team: Radiant
-GuiControl, PortraitPosition, Portrait Position: 1
+GuiControl, ,Team, Team: Radiant
+GuiControl, ,PortraitPosition, Portrait Position: 1
 }
 
 if(CurrentPositionX=RP2X)
@@ -573,22 +626,35 @@ return
 
 Ally1Hotkey:
 msgbox TADA
+return
 
 Ally2Hotkey:
 msgbox TADA
+return
 
 Ally3Hotkey:
 msgbox TADA
+return
 
 Ally4Hotkey:
 msgbox TADA
+return
 
 IngameSelectHero:
 msgbox TADA
+return
 
 ;----
 Button1:
 msgbox % Ally1Hotkey
+return
 
 ;---
 
+join( arr )
+{
+  s := ""
+  for i,v in strArray
+    s .= ", " . v
+  return substr(s, 3)
+}
