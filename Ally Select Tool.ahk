@@ -7,6 +7,8 @@ global testarray := [143,334,14,31,39,77,88,66,123,765]
 global PositionArrayX := Object() 
 global PositionArrayY := Object()
 global CurrentPositionX := 0
+global Team = ""
+global PortraitPosition = ""
 
 ExtrapolateDifference := 0
 
@@ -97,8 +99,8 @@ Gui, FrontEnd:Add, Text, w200, Ally Selection Tool (by Calaminh and John)
 Gui, FrontEnd:Add, Text, w200, __________________________________
 Gui, FrontEnd:Add, Text, w200, Note: You will not always have the same team or portrait. Please update the information for every game.
 
-GUI, FrontEnd:Add, Text, vTeam , Team:
-GUI, FrontEnd:Add, Text, vPortraitPosition , Portrait Position:
+GUI, FrontEnd:Add, Text, w200 vTeam , Team:
+GUI, FrontEnd:Add, Text, w200 vPortraitPosition , Portrait Position:
 GUI, FrontEnd:Add, Text,  , Selection Method:
 
 
@@ -236,7 +238,7 @@ Record(Index) {
     }
 }
 
-Record2() {
+ListenHotkey() {
     loop {
         MouseGetPos, xpos, ypos
         ToolTip, X=%xpos% Y=%ypos%
@@ -520,8 +522,6 @@ GuiControl, Disable, Ally4HotkeyPart1
 GuiControl, Disable, IngameSelectHeroPart1
 return
 
-return
-
 ;NOTE TO SELF
 ;GuiControlGet, UpdateHotkey
 ;MsgBox The hotkey is %UpdateHotkey%
@@ -532,16 +532,11 @@ min() {
     DifferenceArray:=[]
     Mindex := 1
     temp = 0
-    
-    MsgBox "MIN CALLED"
-    
-    join(testarray)
-    
+
     for currNdx, element in PositionArrayX
     {
         DifferenceArray[currNdx] = Abs(CurrentPositionX - element)
         temp := DifferenceArray[currNdx]
-        MsgBox %currNdx% "POSITION " %element% "CP" %CurrentPositionX% "Difference" %temp%
     }
 
     SmallestDifference := DifferenceArray[1]
@@ -554,12 +549,13 @@ min() {
             Mindex = currNdx
         }
     }
-    
+
     return PositionArrayX[Mindex]
 }
 
 TEST:
 msgbox DO NOTHING
+return
 
 ;-------------------
 
@@ -584,13 +580,16 @@ GuiControl, Disable, Reset10
 ;HOTKEYS SECTION
 
 GetCurrentPortrait:
-Record2()
+ListenHotkey()
 CurrentPositionX := min()
-MsgBox "TEST" %CurrentPositionX%
+
+str1 = Team: Horde
+str2 = Portrait Position: -1
+
 if(CurrentPositionX=RP1X)
 {
-GuiControl, ,Team, Team: Radiant
-GuiControl, ,PortraitPosition, Portrait Position: 1
+    GuiControl, FrontEnd:,Team, %str1%
+    GuiControl, FrontEnd:,PortraitPosition, %str2%
 }
 
 if(CurrentPositionX=RP2X)
