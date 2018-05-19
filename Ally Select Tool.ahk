@@ -62,6 +62,37 @@ IniRead, DP4Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable18
 IniRead, DP5X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable19
 IniRead, DP5Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable20
 
+PositionArrayX[1] := RP1X
+PositionArrayY[1] := RP1Y
+
+PositionArrayX[2] := RP2X
+PositionArrayY[2] := RP2Y
+
+PositionArrayX[3] := RP3X
+PositionArrayY[3] := RP3Y
+
+PositionArrayX[4] := RP4X
+PositionArrayY[4] := RP4Y
+
+PositionArrayX[5] := RP5X
+PositionArrayY[5] := RP5Y
+
+PositionArrayX[6] := DP1X
+PositionArrayY[6] := DP1Y
+
+PositionArrayX[7] := DP2X
+PositionArrayY[7] := DP2Y
+
+PositionArrayX[8] := DP3X
+PositionArrayY[8] := DP3Y
+
+PositionArrayX[9] := DP4X
+PositionArrayY[9] := DP4Y
+
+PositionArrayX[10] := DP5X
+PositionArrayY[10] := DP5Y
+
+
 Gui, FrontEnd:Add, Text, w200, Ally Selection Tool (by Calaminh and John)
 Gui, FrontEnd:Add, Text, w200, __________________________________
 Gui, FrontEnd:Add, Text, w200, Note: You will not always have the same team or portrait. Please update the information for every game.
@@ -348,16 +379,16 @@ IniWrite, %TempStorage12%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP6X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable11
 IniRead, RP6Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable12
 GuiControl,,CoordinateText6, X=%RP6X% Y=%RP6Y%
-PositionArrayX[6] := RP6X
-PositionArrayY[6] := RP6Y
+PositionArrayX[6] := DP1X
+PositionArrayY[6] := DP1Y
 return
 
 Reset6:
 RP6X = 0
 RP6Y = 0
 GuiControl,,CoordinateText6, X=%RP6X% Y=%RP6Y%
-PositionArrayX[6] := RP6X
-PositionArrayY[6] := RP6Y
+PositionArrayX[6] := DP1X
+PositionArrayY[6] := DP1Y
 return
 
 Record7:
@@ -369,16 +400,16 @@ IniWrite, %TempStorage14%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP7X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable13
 IniRead, RP7Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable14
 GuiControl,,CoordinateText7, X=%RP7X% Y=%RP7Y%
-PositionArrayX[7] := RP7X
-PositionArrayY[7] := RP7Y
+PositionArrayX[7] := DP2X
+PositionArrayY[7] := DP2Y
 return
 
 Reset7:
 RP7X = 0
 RP7Y = 0
 GuiControl,,CoordinateText7, X=%RP7X% Y=%RP7Y%
-PositionArrayX[7] := RP7X
-PositionArrayY[7] := RP7Y
+PositionArrayX[7] := DP2X
+PositionArrayY[7] := DP2Y
 return
 
 Record8:
@@ -390,16 +421,16 @@ IniWrite, %TempStorage16%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP8X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable15
 IniRead, RP8Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable16
 GuiControl,,CoordinateText8, X=%RP8X% Y=%RP8Y%
-PositionArrayX[8] := RP8X
-PositionArrayY[8] := RP8Y
+PositionArrayX[8] := DP3X
+PositionArrayY[8] := DP3Y
 return
 
 Reset8:
 RP8X = 0
 RP8Y = 0
 GuiControl,,CoordinateText8, X=%RP8X% Y=%RP8Y%
-PositionArrayX[8] := RP8X
-PositionArrayY[8] := RP8Y
+PositionArrayX[8] := DP3X
+PositionArrayY[8] := DP3Y
 return
 
 Record9:
@@ -411,16 +442,16 @@ IniWrite, %TempStorage18%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP9X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable17
 IniRead, RP9Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable18
 GuiControl,,CoordinateText9, X=%RP9X% Y=%RP9Y%
-PositionArrayX[9] := RP9X
-PositionArrayY[9] := RP9Y
+PositionArrayX[9] := DP4X
+PositionArrayY[9] := DP4Y
 return
 
 Reset9:
 RP9X = 0
 RP9Y = 0
 GuiControl,,CoordinateText9, X=%RP9X% Y=%RP9Y%
-PositionArrayX[9] := RP9X
-PositionArrayY[9] := RP9Y
+PositionArrayX[9] := RP4X
+PositionArrayY[9] := DP4Y
 return
 
 Record10:
@@ -432,16 +463,16 @@ IniWrite, %TempStorage20%, AllySelectToolSettings.ini, SavedPortraitPosition, Va
 IniRead, RP10X, AllySelectToolSettings.ini, SavedPortraitPosition, Variable19
 IniRead, RP10Y, AllySelectToolSettings.ini, SavedPortraitPosition, Variable20
 GuiControl,,CoordinateText10, X=%RP10X% Y=%RP10Y%
-PositionArrayX[10] := RP10X
-PositionArrayY[10] := RP10Y
+PositionArrayX[10] := DP5X
+PositionArrayY[10] := DP5Y
 return
 
 Reset10:
 RP10X = 0
 RP10Y = 0
 GuiControl,,CoordinateText10, X=%RP10X% Y=%RP10Y%
-PositionArrayX[10] := RP10X
-PositionArrayY[10] := RP10Y
+PositionArrayX[10] := DP5X
+PositionArrayY[10] := DP5Y
 return
 ;----------------------------------------------------------------------------------------------
 return
